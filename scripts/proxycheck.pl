@@ -101,7 +101,7 @@ sub check_func {
    $lwp->agent("Opera/9.80 (X11; Linux i686; U; en) Presto/2.10.289 Version/12.00");
    $lwp->proxy($proxy);
    for(1 .. $opt->{attempts}) {
-      my $response = $lwp->head($opt->{url});
+      my $response = $lwp->get($opt->{url});
       if( $response->is_success) {
          push @result, $proxy;
          if(@result >= 5) {
